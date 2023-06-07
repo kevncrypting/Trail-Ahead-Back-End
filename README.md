@@ -6,7 +6,7 @@ This is a companion API to the [Trail Ahead](https://github.com/DQuaya/Trail-Ahe
 
 The API provides comprehensive functionality for managing hikes. As a signed-in user, you can create, read, update, and delete a planned hike. Outside of the authenticated routes, there are a select number of curated hikes that can be accessed.
 
-- Each **Hike** has a `hikeLeader`.
+- Each **Hike** has a `hikeLeader`. (more details to come soon)
 
 ## Running the App Locally
 
