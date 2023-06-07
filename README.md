@@ -65,7 +65,7 @@ The API can be accessed at the following endpoints:
 | GET         | /hikes/:id               | Get a specific hike by ID                        | N/A                                          |
 | PUT         | /hikes/:id               | Update a specific hike by ID                     | ID                                           |
 | DELETE      | /hikes/:id               | Delete a specific hike by ID                     | N/A                                          |
-| GET         | /curated                 | Get all books in a specific library              | N/A                                          |
+| GET         | /curated                 | Get all curated hikes                            | N/A                                          |
 
 
 All `POST` and `PUT` requests must include a `Content-Type: application/json` header.
