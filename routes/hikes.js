@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const knex = require("..db");
+const knex = require("../db");
 
 router.get("/", function (req, res, next) {
   knex("hikes")
@@ -18,15 +18,15 @@ router.get("/", function (req, res, next) {
 
 //   Post a new hike
 
-// router.post("/", function (req, res, next) {
-//   const { name, picture, experience, timeDate, groupSize } = req.body;
+router.post("/", function (req, res, next) {
+  const { name, picture, experience, timeDate, groupSize } = req.body;
 
-//   knex("hikes")
-//     .insert({ name, picture, experience, timeDate, groupSize })
-//     .returning("*")
-//     .then((hike) => req.json(hike))
-//     .catch((err) => next(err));
-// });
+  knex("hikes")
+    .insert({ name, picture, experience, timeDate, groupSize })
+    .returning("*")
+    .then((hike) => req.json(hike))
+    .catch((err) => next(err));
+});
 
 // PUT(update);
 // router.put("/:id", function (req, res, next) {
