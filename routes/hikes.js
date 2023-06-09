@@ -41,15 +41,15 @@ router.post("/", function (req, res, next) {
 //     .catch((err) => next(err));
 // });
 
-// router.delete("/:id", function (req, res, next) {
-//   const { id } = req.params;
+router.delete("/:id", function (req, res, next) {
+  const { id } = req.params;
 
-//   knex("hikes")
-//     .del()
-//     .where({ id })
-//     .returning("*")
-//     .then((hike) => res.json(hike))
-//     .catch((err) => next(err));
-// });
+  knex("hikes")
+    .del()
+    .where({ id })
+    .returning("*")
+    .then((hike) => res.json(hike))
+    .catch((err) => next(err));
+});
 
 module.exports = router;
