@@ -3,7 +3,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require('jsonwebtoken');
-const { User } = require("../models");
+const { User } = require("../models/User");
 
 router.post("/register", async (req, res) => {
   const { username, password } = req.body; // extracts the username and password values from the body of the request
