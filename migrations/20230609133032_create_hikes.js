@@ -5,6 +5,7 @@
 exports.up = function (knex) {
     return knex.schema.createTable("hikes", function (table) {
         table.increments("id").primary();
+        table.integer("hikePlanner").notNullable();
         table.string("trailName").notNullable();
         table.string("trailThumbnail");
         table.string("trailCover");
