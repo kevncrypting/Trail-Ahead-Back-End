@@ -21,7 +21,6 @@ exports.up = function (knex) {
         table.string("pinterest");
         table.string("instagram");
         table.string("facebook");
-
         table.timestamps(true, true);
     });
 };
