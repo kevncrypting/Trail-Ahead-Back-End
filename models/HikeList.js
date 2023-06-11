@@ -4,12 +4,11 @@ const Hike = require("./Hike");
 
 const HikeList = bookshelf.model("HikeList", {
     tableName: "hikelist",
-    idAttribute: "id",
-    users() {
-        return this.hasMany(User, "userId");
+    user: function () {
+        return this.belongsTo(User, "userId");
     },
-    hikes() {
-        return this.hasOne(Hike, "hikeId");
+    hike: function () {
+        return this.belongsTo(Hike, "hikeId");
     },
 });
 

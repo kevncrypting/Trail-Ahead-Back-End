@@ -14,7 +14,6 @@ exports.up = function (knex) {
         table.integer("maxGroupSize").notNullable();
         table.string("about").notNullable();
         table.string("expectations").notNullable();
-
         table.timestamps(true, true);
     });
 };
