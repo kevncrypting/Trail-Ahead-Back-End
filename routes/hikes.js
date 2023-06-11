@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
 });
 
 // GET a specific hike by ID, including related users
-router.get("/:id/users", function (req, res, next) {
+router.get("/:id", function (req, res, next) {
     const { id } = req.params;
 
     Hike.where({ id })
