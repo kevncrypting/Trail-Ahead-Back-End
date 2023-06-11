@@ -15,6 +15,12 @@ module.exports = {
     test: {
         client: "postgresql",
         connection: "postgres://localhost/trail-database",
+        migrations: {
+            directory: './migrations',
+        },
+        seeds: {
+            directory: './seeds',
+        },
         debug: true,
     },
 
