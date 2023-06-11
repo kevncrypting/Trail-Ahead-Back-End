@@ -9,12 +9,12 @@ exports.up = function (knex) {
         table.string("lastName").notNullable();
         table.string("email").notNullable();
         table.string("password").notNullable();
-        table.integer("age");
+        table.integer("age").unsigned();
         table.string("gender");
         table.string("experience");
         table.string("city");
         table.string("state");
-        table.integer("zipcode");
+        table.integer("zipcode").unsigned();
         table.string("profilePicture");
         table.string("profileTagLine");
         table.string("twitter");
