@@ -6,7 +6,7 @@ const User = bookshelf.model("User", {
     tableName: "users",
     idAttribute: "id",
     hikes: function () {
-        return this.belongsToMany(Hike).through(HikeList, "hikeId");
+        return this.hasMany(HikeList, "userId");
     },
 });
 
