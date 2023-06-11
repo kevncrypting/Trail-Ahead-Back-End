@@ -1,32 +1,33 @@
 const express = require("express");
 const router = express.Router();
-const knex = require("../db");
+const Hike = require("../models/Hike");
 
+// GET a list of all hikes
 router.get("/", function (req, res, next) {
-  knex("hikes")
-    .select("*")
-    .then((hikes) => res.json(hikes))
-    .catch((err) => next(err));
+    Hike.fetchAll()
+        .then((hikes) => res.json(hikes))
+        .catch((err) => next(err));
 });
 
-// knex("hikes")
-//   .select("*")
-//   .where({ id })
-//   .first()
-//   .then((hike) => res.json(hike))
-//   .catch((err) => next(err));
+// GET a specific hike by ID
+router.get("/:id", function (req, res, next) {
+    const { id } = req.params;
 
-//   Post a new hike
-
-router.post("/", function (req, res, next) {
-  const { name, picture, experience, timeDate, groupSize } = req.body;
-
-  knex("hikes")
-    .insert({ name, picture, experience, timeDate, groupSize })
-    .returning("*")
-    .then((hike) => req.json(hike))
-    .catch((err) => next(err));
+    Hike.where({ id })
+        .fetch()
+        .then((hike) => res.json(hike))
+        .catch((err) => next(err));
 });
+
+// router.post("/", function (req, res, next) {
+//     const { name, picture, experience, timeDate, groupSize } = req.body;
+
+//     knex("hikes")
+//         .insert({ name, picture, experience, timeDate, groupSize })
+//         .returning("*")
+//         .then((hike) => req.json(hike))
+//         .catch((err) => next(err));
+// });
 
 // PUT(update);
 // router.put("/:id", function (req, res, next) {

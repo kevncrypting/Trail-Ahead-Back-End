@@ -5,11 +5,14 @@
 exports.up = function(knex) {
   return knex.schema.createTable("hikes", function (table) {
     table.increments("id").primary();
-    table.string("name").notNullable();
-    table.string("picture").notNullable();
-    table.integer("experience").notNullable();
+    table.string("trailName").notNullable();
+    table.string("trailThumbnail");
+    table.string("trailCover");
     table.string("timeDate").notNullable();
-    table.integer("groupSize").notNullable();
+    table.integer("currentGroupSize").notNullable();
+    table.integer("maxGroupSize").notNullable();
+    table.string("about").notNullable();
+    table.string("expectations").notNullable();
     
     table.timestamps(true, true);
   });
