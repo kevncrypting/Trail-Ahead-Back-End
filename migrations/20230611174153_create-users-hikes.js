@@ -3,7 +3,7 @@
  * @returns { Promise<void> }
  */
 exports.up = function (knex) {
-    return knex.schema.createTable("hikelist", function (table) {
+    return knex.schema.createTable("users_hikes", function (table) {
         table.integer("userId").unsigned().notNullable();
         table.integer("hikeId").unsigned().notNullable();
         table.timestamps(true, true);
@@ -18,5 +18,5 @@ exports.up = function (knex) {
  * @returns { Promise<void> }
  */
 exports.down = function (knex) {
-    return knex.schema.dropTable("hikelist");
+    return knex.schema.dropTable("users_hikes");
 };

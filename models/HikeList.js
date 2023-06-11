@@ -3,7 +3,7 @@ const User = require("./User");
 const Hike = require("./Hike");
 
 const HikeList = bookshelf.model("HikeList", {
-    tableName: "hikelist",
+    tableName: "users_hikes",
     user: function () {
         return this.belongsTo(User, "userId");
     },

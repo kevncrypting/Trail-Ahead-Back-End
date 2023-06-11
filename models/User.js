@@ -5,7 +5,7 @@ const HikeList = require("./HikeList");
 const User = bookshelf.model("User", {
     tableName: "users",
     idAttribute: "id",
-    hikes() {
+    hikes: function () {
         return this.belongsToMany(Hike).through(HikeList, "hikeId");
     },
 });

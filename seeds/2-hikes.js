@@ -8,27 +8,27 @@ exports.seed = async function (knex) {
     await knex("hikes").insert([
         {
             hikePlanner: 1,
-            trailName: "Forest Trail",
+            trailName: "Mountain Peak Trail",
             trailThumbnail: "https://example.com/trail1-thumbnail.jpg",
             trailCover: "https://example.com/trail1-cover.jpg",
             timeDate: "06-15-2023",
             currentGroupSize: 1,
             maxGroupSize: 3,
-            about: "We're an adventurous and friendly group, fueled by our love for the great outdoors. We cherish the company of like-minded individuals who share our passion for hiking, dogs, and the top 50 radio hits. With a casual pace, we explore picturesque trails, always aiming to reach the perfect spots for breathtaking views and memorable picnic breaks. Join us as we embrace nature's beauty, indulge in delicious snacks, and engage in captivating conversations. Get ready for an incredible hiking experience filled with laughter, camaraderie, and a sense of awe at every turn!",
+            about: "I am an adventurous mountain enthusiast, seeking breathtaking views, challenging trails, and unforgettable memories!",
             expectations:
-                "We're aiming for a casual pace and planning to stop at the 3 mi mark to enjoy the waterfall and have a picnic break. Bring a book, your favorite snacks, and a hammock if you have one!",
+                "Join me as we conquer steep ascents, navigate rocky terrains, and revel in the stunning beauty of mountain landscapes.",
         },
         {
             hikePlanner: 3,
-            trailName: "Mountain Trail",
+            trailName: "Forest Trail",
             trailThumbnail: "https://example.com/trail2-thumbnail.jpg",
             trailCover: "https://example.com/trail2-cover.jpg",
             timeDate: "06-22-2023",
             currentGroupSize: 2,
             maxGroupSize: 4,
-            about: "We're a dynamic group of outdoor enthusiasts who thrive on the thrill of exploration. Bound together by our shared love for hiking, we embark on exhilarating adventures through rugged terrains and scenic trails. Along the way, we revel in the joy of discovering hidden gems, capturing stunning photographs, and immersing ourselves in the tranquility of nature. With an infectious energy, we embrace diverse interests, from capturing captivating wildlife moments to discussing thought-provoking books. Our hikes are a harmonious blend of invigorating challenges and leisurely pauses to savor breathtaking vistas. Join us as we create lasting memories, forge deep friendships, and revel in the awe-inspiring wonders of the great outdoors.",
+            about: "We're a group of nature enthusiasts, immersed in the serenity of lush forests, vibrant flora, and the symphony of chirping birds!",
             expectations:
-                "We're aiming for a casual pace and planning to reach the summit by sunset. Bring a sturdy pair of hiking boots, a headlamp, and some snacks!",
+                "Join us on this enchanting hike as we meander through winding trails, embrace the tranquility of the woods, and discover hidden wonders.",
         },
         {
             hikePlanner: 5,
@@ -38,7 +38,7 @@ exports.seed = async function (knex) {
             timeDate: "06-29-2023",
             currentGroupSize: 3,
             maxGroupSize: 5,
-            about: "We're an adventurous group of nature enthusiasts, always seeking new horizons and thrilling experiences. With a shared passion for hiking, we embark on exhilarating journeys through untamed wilderness and picturesque landscapes. Our dynamic personalities bring a vibrant mix of interests, from birdwatching and wildflower identification to capturing stunning landscape photography. As we conquer challenging trails, we bond over our love for hearty conversations, fueled by our curiosity about diverse cultures and world affairs. Along the way, we take time to appreciate the small wonders, like finding hidden waterfalls or spotting elusive wildlife. Join us as we push our limits, forge deep connections, and create unforgettable memories amidst the beauty of nature.",
+            about: "We're a group of beach lovers who enjoy the soothing sound of crashing waves, stunning coastal views, and exploring hidden coves.",
             expectations:
                 "We're aiming for a casual pace and planning to explore the beautiful coastal views. Bring comfortable shoes, sunscreen, and a camera to capture the moments!",
         },
@@ -77,6 +77,6 @@ exports.seed = async function (knex) {
             about: "We are a group of passionate explorers who live for the thrill of conquering canyons and uncovering hidden treasures.",
             expectations:
                 "On this hike, we'll navigate rugged terrains, scramble through narrow passageways, and witness breathtaking vistas from towering cliffs. Prepare to be amazed!",
-        }
+        },
     ]);
 };
