@@ -6,7 +6,7 @@ const Hike = bookshelf.model("Hike", {
     idAttribute: "id",
     users() {
         return this.belongsToMany(User, "userId");
-    }
+    },
 });
 
 module.exports = Hike;
