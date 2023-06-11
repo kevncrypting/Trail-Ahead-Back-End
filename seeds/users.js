@@ -95,6 +95,6 @@ exports.seed = async function (knex) {
             pinterest: "jklmn",
             instagram: "opqrs",
             facebook: "uvwxy",
-        },
+        }
     ]);
 };
