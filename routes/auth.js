@@ -2,8 +2,14 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models/User");
+const knex = require("../db");
+
+const createToken = (id) => {
+    return jwt.sign({ id }, process.env.SECRETKEYJWT, { expiresIn: "3d" });
+};
 
 router.post("/register", async (req, res, next) => {
     // deconstructs the username and password values from the request body
@@ -28,39 +34,16 @@ router.post("/register", async (req, res, next) => {
         // using bcrypt, creates a hashedPassword out of the password value that is the result of 10 salt rounds
         const hashedPassword = bcrypt.hashSync(password, 10);
 
-        // await User.create({
-        //     email,
-        //     password: hashedPassword,
-        //     firstName,
-        //     lastName,
-        // })
-        // .save()
-        // .then((user) => res.json(user).status(201))
-        // .catch((err) => next(err));
+        // using knex, look into users table and insert new object with following properties, then return user
+        const user = await knex("users")
+            .insert({ email, password: hashedPassword, firstName, lastName })
+            .returning("*");
 
-        console.log("test try block");
+        // using createToken method defined above, create a token using id property of user
+        const token = createToken(user.id);
 
-        // const user = await User.forge({
-        //     email,
-        //     password: hashedPassword,
-        //     firstName,
-        //     lastName,
-        // });
-
-        // console.log(user);
-
-        // user.save().then((user) => {
-        //     res.sendStatus(201).json(user);
-        // });
-
-        // await User.create({
-        //     username,
-        //     password: hashedPassword,
-        //     firstName,
-        //     lastName,
-        // });
-
-        // res.sendStatus(201);
+        // send back 201 status code with email and token if successful
+        res.status(201).json({ email, token });
     } catch (err) {
         // if an error is present, the error is sent back with the 500 status code
         res.status(500).send(err);
@@ -68,9 +51,11 @@ router.post("/register", async (req, res, next) => {
 });
 
 router.post("/login", async (req, res, next) => {
+    const { email, password } = req.body;
+
     try {
         // looks for a User in the database where the username matches the username in the body of the request, then fetch that User
-        const user = await User.where({ username: req.body.username }).fetch();
+        const user = await knex("users").select("*").where({ email }).first();
 
         if (!user) {
             // if user is null/undefined, return the 401 status code and following error message
@@ -80,10 +65,7 @@ router.post("/login", async (req, res, next) => {
         }
 
         // boolean value, asynchronously waits for bcrypt to compare the password in the body of the request with the hashed password attached to the located user
-        const isPasswordValid = await bcrypt.compare(
-            req.body.password,
-            user.password
-        );
+        const isPasswordValid = await bcrypt.compare(password, user.password);
 
         if (!isPasswordValid) {
             // if bcrypt cannot match the password, the variable isPasswordValid is false and this expression evaluates to be true - then returns the 401 status code and the following error message
@@ -92,12 +74,10 @@ router.post("/login", async (req, res, next) => {
                 .json({ error: "Invalid username or password" });
         }
 
-        // token creation step: JWT has three sections, the header, payload, and signature. IF a user is located, then we reach this step. Using the sign method on the JWT package, we encode the following information
-        const token = jwt.sign({ id: user.id }, "your_jwt_secret", {
-            expiresIn: "6h",
-        });
+        // using createToken method defined above, create a token using id property of user
+        const token = createToken(user.id);
 
-        res.status(200).json({ token });
+        res.status(200).json({ email, token });
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
