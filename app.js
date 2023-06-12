@@ -10,6 +10,7 @@ const indexRouter = require("./routes/index");
 const usersRouter = require("./routes/users");
 const authRouter = require("./routes/auth");
 const hikesRouter = require("./routes/hikes");
+const hikelistRouter = require("./routes/hikelist");
 const app = express();
 
 app.use(logger("dev"));
@@ -23,6 +24,7 @@ app.use("/auth", authRouter);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/hikes", hikesRouter);
+app.use("/hikelist", hikelistRouter);
 
 // 404 Not Found handler
 app.use((req, res, next) => {
