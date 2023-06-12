@@ -4,6 +4,7 @@
  */
 exports.up = function (knex) {
     return knex.schema.createTable("users_hikes", function (table) {
+        table.increments().primary();
         table.integer("userId").unsigned().notNullable();
         table.integer("hikeId").unsigned().notNullable();
         table.timestamps(true, true);
