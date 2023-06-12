@@ -14,7 +14,7 @@ router.get("/:id", function (req, res, next) {
     const { id } = req.params;
 
     Hike.where({ id })
-        .fetch({ withRelated: ["users"] })
+        .fetch({ withRelated: ['users'] })
         .then((hike) => res.json(hike))
         .catch((err) => next(err));
 });
