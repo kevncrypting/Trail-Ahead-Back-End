@@ -40,7 +40,7 @@ module.exports = {
         },
     },
 
-    production: {c
+    production: {
         client: "pg",
         username: process.env.DATABASE_USER,
         password: process.env.DATABASE_PASSWORD,
