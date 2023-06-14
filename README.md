@@ -22,8 +22,10 @@ cd Trail-Ahead-Back-End
 ### Install the dependencies:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
+
+The `--legacy-peer-deps` flag is required for installation of Bookshelf.js.
 
 ### Set up the database:
 
@@ -90,10 +92,10 @@ In case of an error, the API will return a JSON response with a `message` proper
 
 ### Development Team
 
-DonQuaya Brown - [LinkedIn](https://www.linkedin.com/in/donquayabrown/) and [GitHub](https://github.com/DQuaya)
+DonQuaya Brown - [LinkedIn](https://www.linkedin.com/in/donquayabrown/) | [GitHub](https://github.com/DQuaya)
 
-Thanuseng Kevin Prachith - [LinkedIn](https://www.linkedin.com/in/tkprachith/) and [GitHub](https://github.com/kevncrypting)
+Thanuseng Kevin Prachith - [LinkedIn](https://www.linkedin.com/in/tkprachith/) | [GitHub](https://github.com/kevncrypting)
 
-Aaliyah Russell - [LinkedIn](https://www.linkedin.com/in/aaliyah-russell-80900a1b5/) and [GitHub](https://github.com/Azrussell)
+Aaliyah Russell - [LinkedIn](https://www.linkedin.com/in/aaliyah-russell-80900a1b5/) | [GitHub](https://github.com/Azrussell)
 
-Gerald Pinkins - [LinkedIn](https://www.linkedin.com/in/gerald-pinkins/) and [GitHub](https://github.com/GeraldPinkinsJr)
+Gerald Pinkins - [LinkedIn](https://www.linkedin.com/in/gerald-pinkins/) | [GitHub](https://github.com/GeraldPinkinsJr)
