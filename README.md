@@ -22,8 +22,10 @@ cd Trail-Ahead-Back-End
 ### Install the dependencies:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
+
+The `--legacy-peer-deps` flag is required for installation of Bookshelf.js.
 
 ### Set up the database:
 
