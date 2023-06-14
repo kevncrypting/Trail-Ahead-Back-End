@@ -66,7 +66,7 @@ The API can be accessed at the following endpoints:
 | **`PUT`**   | /hikes/:id               | Update a specific hike by its ID                    | ID, including the property/properties to be updated|
 | **`DELETE`**| /hikes/:id               | Delete a specific hike by its ID                    | ID                                                 |
 | **`GET`**   | /hikelist                | Get a list of user/hike associations                | N/A                                                |
-| **`POST`**  | /hikelist                | Create a new user/hike association                  | {<br>    "**userId**": `integer` 1,<br>    "**hikeId**": `integer` 2"<br>}                     |
+| **`POST`**  | /hikelist                | Create a new user/hike association                  | {<br>    "**userId**": `integer` 1,<br>    "**hikeId**": `integer` 2<br>}                     |
 | **`PUT`**   | /hikelist/:id            | Update a specific user/hike association by its ID   | ID, including the property/properties to be updated|
 | **`DELETE`**| /hikelist/:id            | Delete a specific user/hike association by its ID   | ID                                                 |
 | **`POST`**  | /auth/register           | Create a new user (returns email and token)         | {<br>    "**firstName**": `string` "John",<br>    "**lastName**": `string` "Doe",<br>    "**email**": `string` "johndoe@user.com",<br>    "**password**": `string` "password1"<br>}                                                |
