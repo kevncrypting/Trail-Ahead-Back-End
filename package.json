@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npx knex migrate:latest && npx knex seed:run && node ./bin/www",
+    "start": "npx knex migrate:latest && node ./bin/www",
     "dev": "nodemon ./bin/www",
     "test": "NODE_ENV=test jest"
   },
