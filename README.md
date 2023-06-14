@@ -6,6 +6,8 @@ This is a companion API to the [Trail Ahead](https://github.com/DQuaya/Trail-Ahe
 
 The API provides comprehensive functionality for managing hikes. As a signed-in user, you can create, read, update, and delete a planned hike. Outside of the authenticated routes, there are a select number of curated hikes that can be accessed.
 
+>Future Feature: There will be a route to fetch a list of curated hikes selected by the dev team.
+
 ## Running the App Locally
 
 To run the app locally, you'll need Node.js, npm, and PostgreSQL installed on your machine.
@@ -56,14 +58,23 @@ The app should now be running on [http://localhost:3000](http://localhost:3000).
 The API can be accessed at the following endpoints:
 
 
-| **Method**  | **Route/Endpoint**       | **Description**                                  | **Required JSON Body**                             |
-|-------------|--------------------------|--------------------------------------------------|----------------------------------------------------|
-| **`GET`**   | /hikes                   | Get a list of all hikes                          | N/A                                                |
-| **`POST`**  | /hikes                   | Create a new hike                                | {<br>    "**trailName**": `string` "Mountain Peak Trail",<br>    "**trailThumbnail**": `string` "https://example.com/trail1-thumbnail.jpg",<br>    "**trailCover**": `string` "https://example.com/trail1-cover.jpg",<br>    "**timeDate**": `string, in mm-dd-yyyy format` "06-15-2023",<br>    "**currentGroupSize**": `integer` 1,<br>    "**maxGroupSize**": `integer` 3,<br>    "**about**": `string` "I am an adventurous mountain enthusiast, seeking breathtaking views, challenging trails, and unforgettable memories!",<br>    "**expectations**": `string` "Join me as we conquer steep ascents, navigate rocky terrains, and revel in the stunning beauty of mountain landscapes."<br>}                     |
-| **`GET`**   | /hikes/:id               | Get a specific hike by its ID                    | N/A                                                |
-| **`PUT`**   | /hikes/:id               | Update a specific hike by its ID                 | ID, including the property/properties to be updated|
-| **`DELETE`**| /hikes/:id               | Delete a specific hike by its ID                 | ID                                                 |
-<!-- | GET         | /curated                 | Get all curated hikes                            | N/A                                          | -->
+| **Method**  | **Route/Endpoint**       | **Description**                                     | **Required JSON Body**                             |
+|-------------|--------------------------|-----------------------------------------------------|----------------------------------------------------|
+| **`GET`**   | /hikes                   | Get a list of all hikes                             | N/A                                                |
+| **`POST`**  | /hikes                   | Create a new hike                                   | {<br>    "**trailName**": `string` "Mountain Peak Trail",<br>    "**trailThumbnail**": `string` "https://example.com/trail1-thumbnail.jpg",<br>    "**trailCover**": `string` "https://example.com/trail1-cover.jpg",<br>    "**timeDate**": `string, in mm-dd-yyyy format` "06-15-2023",<br>    "**currentGroupSize**": `integer` 1,<br>    "**maxGroupSize**": `integer` 3,<br>    "**about**": `string` "I am an adventurous mountain enthusiast, seeking breathtaking views, challenging trails, and unforgettable memories!",<br>    "**expectations**": `string` "Join me as we conquer steep ascents, navigate rocky terrains, and revel in the stunning beauty of mountain landscapes."<br>}                     |
+| **`GET`**   | /hikes/:id               | Get a specific hike by its ID                       | N/A                                                |
+| **`PUT`**   | /hikes/:id               | Update a specific hike by its ID                    | ID, including the property/properties to be updated|
+| **`DELETE`**| /hikes/:id               | Delete a specific hike by its ID                    | ID                                                 |
+| **`GET`**   | /hikelist                | Get a list of user/hike associations                | N/A                                                |
+| **`POST`**  | /hikelist                | Create a new user/hike association                  | {<br>    "**userId**": `integer` 1,<br>    "**hikeId**": `integer` 2"<br>}                     |
+| **`PUT`**   | /hikelist/:id            | Update a specific user/hike association by its ID   | ID, including the property/properties to be updated|
+| **`DELETE`**| /hikelist/:id            | Delete a specific user/hike association by its ID   | ID                                                 |
+| **`POST`**  | /auth/register           | Create a new user (returns email and token)         | {<br>    "**firstName**": `string` "John",<br>    "**lastName**": `string` "Doe",<br>    "**email**": `string` "johndoe@user.com",<br>    "**password**": `string` "password1"<br>}                                                |
+| **`POST`**  | /auth/login              | Create a new login request (returns email and token)| {<br>    "**email**": `string` "johndoe@user.com",<br>    "**password**": `string` "password1"<br>}                     |
+| **`GET`**   | /users                   | Get a list of all users                             | ID, including the property/properties to be updated|
+| **`PUT`**   | /users/:id               | Update a specific user by its ID                    | ID, including the property/properties to be updated|
+| **`DELETE`**| /users/:id               | Delete a specific user by its ID                    | ID                                                 |
+| ~~GET~~     | ~~/curated~~             | ~~Get all curated hikes~~                           | N/A                                                |
 
 All `POST` and `PUT` requests must include a `Content-Type: application/json` header.
 
