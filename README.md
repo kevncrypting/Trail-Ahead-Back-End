@@ -87,3 +87,13 @@ In case of an error, the API will return a JSON response with a `message` proper
   "message": "There was an error"
 }
 ```
+
+### Development Team
+
+DonQuaya Brown - [LinkedIn](https://www.linkedin.com/in/donquayabrown/) and [GitHub](https://github.com/DQuaya)
+
+Thanuseng Kevin Prachith - [LinkedIn](https://www.linkedin.com/in/tkprachith/) and [GitHub](https://github.com/kevncrypting)
+
+Aaliyah Russell - [LinkedIn](https://www.linkedin.com/in/aaliyah-russell-80900a1b5/) and [GitHub](https://github.com/Azrussell)
+
+Gerald Pinkins - [LinkedIn](https://www.linkedin.com/in/gerald-pinkins/) and [GitHub](https://github.com/GeraldPinkinsJr)
