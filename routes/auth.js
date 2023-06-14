@@ -2,31 +2,52 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
+const validator = require("validator");
 const passport = require("passport");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models/User");
 const knex = require("../db");
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.SECRETKEYJWT, { expiresIn: "3d" });
+    return jwt.sign({ id }, process.env.SECRETKEYJWT, { expiresIn: "1d" });
 };
 
 router.post("/register", async (req, res, next) => {
-    // deconstructs the username and password values from the request body
+    // deconstructs the email and password values from the request body
     const { email, password, firstName, lastName } = req.body;
 
+    // conditional checks to make sure all fields are filled, valid, and of appropriate strength (in case of password)
     if (!email || !password) {
-        // conditional block that checks to make sure the username and password values are not null/undefined - if one is, then returns the 400 status code and the message below as a json object
         return res
             .status(400)
-            .json({ message: "Username and password are both required." });
+            .json({ message: "Email and password are both required." });
     }
 
     if (!firstName || !lastName) {
-        // conditional block that checks to make sure the username and password values are not null/undefined - if one is, then returns the 400 status code and the message below as a json object
         return res.status(400).json({
-            message:
-                "Please enter a first and last name to identify yourself to the community.",
+            message: "First and last name are both required.",
+        });
+    }
+
+    if (!validator.isEmail(email)) {
+        return res.status(400).json({
+            message: "Email not valid.",
+        });
+    }
+
+    if (!validator.isStrongPassword(password)) {
+        return res.status(400).json({
+            message: "Password not strong enough.",
+        });
+    }
+
+    // looks to see if email is associated with an existing user
+    const exists = await knex("users").select("*").where({ email }).first();
+
+    // if user exists, then returns message saying email is already in use
+    if (exists) {
+        return res.status(400).json({
+            message: "Email already in use.",
         });
     }
 
