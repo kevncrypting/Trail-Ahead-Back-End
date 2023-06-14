@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npx knex migrate:latest && node ./bin/www",
+    "start": "npx knex migrate:latest && npx knex seed:run && node ./bin/www",
     "dev": "nodemon ./bin/www",
     "test": "NODE_ENV=test jest"
   },
@@ -22,7 +22,8 @@
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "pg": "^8.11.0",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "validator": "^13.9.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
