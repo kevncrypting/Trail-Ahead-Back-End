@@ -18,7 +18,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(cors()); // adds cors middleware, lets us set the origin that provides access to our API
+app.use(cors({
+    origin: 'https://trail-ahead.onrender.com/'
+})); // adds cors middleware, lets us set the origin that provides access to our API
 
 app.use("/auth", authRouter);
 app.use("/", indexRouter);
